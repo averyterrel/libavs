@@ -1,16 +1,14 @@
-#pragma once
-
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
 
-#if defined(ARENA_SANITIZE)
+#ifdef AVS_DEBUG
+#define _arena_debug(...) fprintf(stderr, __VA_ARGS__)
 #define arena_create arena_create_debug
 #define arena_resize arena_resize_debug
 #define arena_malloc arena_malloc_debug
 #define arena_realloc arena_realloc_debug
 #define arena_destroy arena_destroy_debug
-#define _arena_debug(...) fprintf(stderr, __VA_ARGS__)
 #else
 #define _arena_debug(...)
 #endif

@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "arena.h"
+#include "_avs.h"
 
 arena_t * arena_create(size_t max) {
   arena_t * arena = calloc(1, sizeof(arena_t));

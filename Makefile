@@ -1,17 +1,26 @@
 .PHONY: clean build all
-OBJS = arena.o \
-	   arena_debug.o \
+NORM_OBJS = arena.o \
+	   startswith.o \
+	   endswith.o \
+	   getopt.o \
 	   memswap.o \
 	   read_line.o \
-	   strip.o \
-	   getopt.o \
-	   startswith.o
+	   strip.o
+DEBUG_OBJS = arena_debug.o \
+	startswith_debug.o \
+	endswith_debug.o \
+	getopt_debug.o \
+	memswap_debug.o \
+	read_line_debug.o \
+	strip_debug.o
+OBJS = $(NORM_OBJS) $(DEBUG_OBJS)
 HEADERS = arena.h \
+		  startswith.h \
+		  endswith.h \
+		  getopt.h \
 		  memswap.h \
 		  read_line.h \
-		  strip.h \
-		  getopt.h \
-		  startswith.h
+		  strip.h
 PREFIX = /usr/local
 
 all: build
@@ -26,10 +35,12 @@ libavs.a: $(OBJS)
 	$(AR) rcs $@ $^
 
 avs.h: $(HEADERS)
-	cat $^ > $@
+	printf '%s\n' '#pragma once' '#ifndef _AVS_H' '#define _AVS_H' '' \
+		| cat - $^ > $@
+	printf '%s\n' '' '#endif /* _AVS_H */' >> $@
 
-arena_debug.o:
-	$(CC) -c -o $@ $(CFLAGS) -DARENA_SANITIZE=1 arena.c
+%_debug.o: %.c
+	$(CC) -c -o $@ $(CFLAGS) -DAVS_DEBUG=1 $<
 .c.o:
 	$(CC) -c -o $@ $(CFLAGS) $<
 

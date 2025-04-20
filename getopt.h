@@ -1,5 +1,3 @@
-#pragma once
-
 extern int avs_optind;
 extern int avs_opterr;
 extern int avs_optopt;

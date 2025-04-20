@@ -1,5 +1,3 @@
-#pragma once
-
 #include <stdbool.h>
 
-bool startswith(char * a, char * b);
+bool startswith(const char * a, const char * b);

@@ -1,0 +1,3 @@
+*.o
+libavs.a
+avs.h

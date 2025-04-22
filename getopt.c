@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define STREQ(a, b) (strcmp(a, b) == 0)
+#include "_avs.h"
 
 int avs_optind;
 int avs_opterr = 1;

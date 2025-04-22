@@ -5,14 +5,16 @@ NORM_OBJS = arena.o \
 	   getopt.o \
 	   memswap.o \
 	   read_line.o \
-	   strip.o
+	   strip.o \
+	   fseekline.o
 DEBUG_OBJS = arena_debug.o \
 	startswith_debug.o \
 	endswith_debug.o \
 	getopt_debug.o \
 	memswap_debug.o \
 	read_line_debug.o \
-	strip_debug.o
+	strip_debug.o \
+	fseekline_debug.o
 OBJS = $(NORM_OBJS) $(DEBUG_OBJS)
 HEADERS = arena.h \
 		  startswith.h \
@@ -20,7 +22,8 @@ HEADERS = arena.h \
 		  getopt.h \
 		  memswap.h \
 		  read_line.h \
-		  strip.h
+		  strip.h \
+		  fseekline.h
 PREFIX = /usr/local
 
 all: build

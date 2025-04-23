@@ -4,6 +4,9 @@
 #include <string.h>
 
 bool startswith(const char * a, const char * b) {
+	if (a == NULL || b == NULL) return false;
+	size_t as = strlen(a);
 	size_t bs = strlen(b);
-	return strlen(a) >= bs && memcmp(a, b, bs) == 0;
+	if (as < bs) return false;
+	return memcmp(a, b, bs) == 0;
 }

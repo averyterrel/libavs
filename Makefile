@@ -8,7 +8,9 @@ NORM_OBJS = arena.o \
 	   memswap.o \
 	   read_line.o \
 	   lstrip.o \
-	   fseekline.o
+	   fseekline.o \
+	   max.o \
+	   min.o
 DEBUG_OBJS = arena_debug.o \
 	startswith_debug.o \
 	endswith_debug.o \
@@ -16,7 +18,9 @@ DEBUG_OBJS = arena_debug.o \
 	memswap_debug.o \
 	read_line_debug.o \
 	lstrip_debug.o \
-	fseekline_debug.o
+	fseekline_debug.o \
+	max_debug.o \
+	min_debug.o
 OBJS = $(NORM_OBJS) $(DEBUG_OBJS)
 HEADERS = arena.h \
 		  startswith.h \
@@ -25,7 +29,9 @@ HEADERS = arena.h \
 		  memswap.h \
 		  read_line.h \
 		  lstrip.h \
-		  fseekline.h
+		  fseekline.h \
+		  max.h \
+		  min.h
 
 all: build
 build: libavs.a avs.h

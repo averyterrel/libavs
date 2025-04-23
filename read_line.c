@@ -1,7 +1,7 @@
+#include "read_line.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "read_line.h"
 
 char* read_line(FILE* file) {
 	if (!file) {

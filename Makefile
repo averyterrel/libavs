@@ -7,7 +7,7 @@ NORM_OBJS = arena.o \
 	   getopt.o \
 	   memswap.o \
 	   read_line.o \
-	   strip.o \
+	   lstrip.o \
 	   fseekline.o
 DEBUG_OBJS = arena_debug.o \
 	startswith_debug.o \
@@ -15,7 +15,7 @@ DEBUG_OBJS = arena_debug.o \
 	getopt_debug.o \
 	memswap_debug.o \
 	read_line_debug.o \
-	strip_debug.o \
+	lstrip_debug.o \
 	fseekline_debug.o
 OBJS = $(NORM_OBJS) $(DEBUG_OBJS)
 HEADERS = arena.h \
@@ -24,7 +24,7 @@ HEADERS = arena.h \
 		  getopt.h \
 		  memswap.h \
 		  read_line.h \
-		  strip.h \
+		  lstrip.h \
 		  fseekline.h
 
 all: build

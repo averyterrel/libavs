@@ -40,7 +40,7 @@ uintptr_t arena_malloc(arena_t * arena, size_t size) {
 
   uintptr_t new_base = (uintptr_t)realloc((void*)arena->base, newsize);
   if (!new_base) {
-    _avs_debug("Arena: realloc failure");
+    _avs_debug("Arena: realloc failure\n");
     return (uintptr_t)NULL;
   }
   arena->base = new_base;

@@ -1,10 +1,12 @@
 #include "read_line.h"
+#include "_avs.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
 char* read_line(FILE* file) {
 	if (!file) {
+		avs_debug("read_line: *file was NULL\n");
 		return NULL;
 	}
 
@@ -13,6 +15,7 @@ char* read_line(FILE* file) {
 	int c;
 	char* buf = malloc(bufsz);
 	if (!buf) {
+		avs_debug("read_line: allocation failed\n");
 		return NULL;
 	}
 
@@ -21,6 +24,7 @@ char* read_line(FILE* file) {
 			bufsz *= 2;
 			char* newbuf = realloc(buf, bufsz);
 			if (!newbuf) {
+				avs_debug("read_line: reallocation failed\n");
 				free(buf);
 				return NULL;
 			}
@@ -30,6 +34,7 @@ char* read_line(FILE* file) {
 	}
 
 	if (len == 0 && c == EOF) {
+		avs_debug("read_line: reached EOF\n");
 		free(buf);
 		return NULL;
 	}

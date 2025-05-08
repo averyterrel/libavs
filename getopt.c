@@ -23,7 +23,7 @@ int avs_getopt(int argc, const char * argv[], const char * optstring)
   if (arg && STREQ(arg, "--")) {
     avs_optind++;
     return -1;
-  } else if (!arg || arg[0] != '-' || (!isalnum(arg[1]) && arg[1] != '-')) {
+  } else if (!arg || arg[0] != '-' || (!isalnum((unsigned char)arg[1]) && arg[1] != '-')) {
     return -1;
   } else {
     const char *opt = strchr(optstring, arg[optpos]);

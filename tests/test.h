@@ -1,9 +1,7 @@
 #pragma once
 #include "../_avs.h"
 #include <stdio.h>
-#if __STDC_VERSION__ < 202311L
-#include <stdbool.h>
-#endif
+#include "../portability/bool.h"
 
 #define PASS(test) \
 if ((test) != true) { \
